@@ -1,0 +1,46 @@
+
+{% macro renderTopHighlight(article_list)%}
+
+    {% for article in article_list %}
+      <div class="card m-3" style="max-width: 540px;">
+        <a href="{{article.url}}" class="nounderline">
+
+        <div class="row g-0">
+          <div class="col-md-4" >
+            <img src="{{ article.image }}" class="img-fluid rounded-start" style="height:auto" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{article.title |truncate(30)}}</h5>
+              <p class="card-text">{{article.description}}</p>
+              <!-- <a href="{{article.url}}">Read More</a> -->
+              <p class="card-text"><small class="text-muted">Published: {{article.publishedAt}}</small></p>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      </div>
+
+    {% endfor %}
+
+{% endmacro %}
+
+
+<!-- Displaying categories macro -->
+{% macro renderSourceCategories(source_categories_list) %}
+    {% for category in source_categories_list %}
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 review-card">
+      <p>{{ category.name }}</p>
+      <p>{{ category.id }}</p>
+
+      <p class="overview"> {{ category.description }}</p>
+      <p class="overview"> {{ category.category }}</p>
+      <p class="overview"> {{ category.language }}</p>
+      <p class="overview"> {{ category.url }}</p>
+
+    </div>
+    {% endfor %}
+{% endmacro %}
+
+
