@@ -30,17 +30,18 @@
 <!-- Displaying categories macro -->
 {% macro renderSourceCategories(source_categories_list) %}
     {% for category in source_categories_list %}
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 review-card">
-      <p>{{ category.name }}</p>
-      <p>{{ category.id }}</p>
-
-      <p class="overview"> {{ category.description }}</p>
-      <p class="overview"> {{ category.category }}</p>
-      <p class="overview"> {{ category.language }}</p>
-      <p class="overview"> {{ category.url }}</p>
-
-    </div>
+      <div class="card m-3" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{ category.name }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{ category.description }} </h6>
+          <p class="card-text">{{ category.url }}</p>
+          <h6 class="card-subtitle mb-2 text-muted"> </h6>
+          <a href="{{ category.language }}{" class="card-link">Source link</a>
+        </div>
+      </div>
     {% endfor %}
 {% endmacro %}
+
+
 
 

@@ -9,37 +9,50 @@
 
 {% block sources %}
 
-<div class="container"></div>
-    <div class="row">
-      <h1>Source categories</h1>
+<div class="container-fluid">
       <div class="container">
     
         <!-- genera; -->
-        <div class="row">
-            <h3> General</h3>
+        <div class="row d-flex">
             <ul>
-                {{ macro.renderSourceCategories(general)}}
+                {{ macro.renderTopHighlight(bbc)}}
+
             </ul>
         </div>
-        <!-- Upcoming movie  -->
-        <div class="row">
-    
-            <h3> Entertainment </h3>
-            <ul>
-              {{ macro.renderSourceCategories(entertainment)}}
-            </ul>
+
+        <div class="row d-flex">
+          <ul>
+              {{ macro.renderTopHighlight(cnn)}}
+
+          </ul>
         </div>
-    
-        <!-- Now showing movie -->
-        <div class="row">
-    
-            <h3>Tech</h3>
-            <ul>
-              {{ macro.renderSourceCategories(technology)}}
-            </ul>
+
+        <div class="row d-flex">
+          <ul>
+              {{ macro.renderTopHighlight(abc)}}
+
+          </ul>
         </div>
+
+        <div class="row d-flex">
+          <ul>
+              {{ macro.renderTopHighlight(fox)}}
+
+          </ul>
+        </div>
+
+
+        <div class="row d-flex">
+          <ul>
+              {{ macro.renderTopHighlight(mtv)}}
+
+          </ul>
+        </div>
+       
+       
     
-    </div>
+     </div>  
+</div>
 
     
             

@@ -18,8 +18,11 @@ base_url = Config.TOPHEADLINE_API_BASE_URL
 # Getting the article search item url
 search_url = Config.SEARCH_ITEM_URL
 
-# Getting the Categories item url
+# Getting the sources by categories url
 categories_url = Config.CATEGORIES_API_URL
+
+# Getting articles from a definite sourcel
+source_url = Config.SOURCE_API_URL
 
 def get_news_articles():
     '''
@@ -56,21 +59,6 @@ def search_article(article_title):
 
     return search_article_results
 
-def article_categories(category):
-    sourceCategories_url = categories_url.format(category,api_key)
-    with urllib.request.urlopen(sourceCategories_url) as url:
-        source_categories_data = url.read()
-        source_categories_response = json.loads(source_categories_data)
-
-        source_categories_results = None
-
-        if source_categories_response['sources']:
-            source_categories_list = source_categories_response['sources']
-            source_categories_results = process_category_results(source_categories_list)
-
-
-    return source_categories_results
-
 
 def process_results(article_list):
     '''
@@ -92,7 +80,20 @@ def process_results(article_list):
 
     return article_results
 
+def article_categories(category):
+    sourceCategories_url = categories_url.format(category,api_key)
+    with urllib.request.urlopen(sourceCategories_url) as url:
+        source_categories_data = url.read()
+        source_categories_response = json.loads(source_categories_data)
 
+        source_categories_results = None
+
+        if source_categories_response['sources']:
+            source_categories_list = source_categories_response['sources']
+            source_categories_results = process_category_results(source_categories_list)
+
+
+    return source_categories_results
 
 def process_category_results(category_list):
     '''
@@ -115,3 +116,17 @@ def process_category_results(category_list):
     return category_results
 
 
+def article_by_source(source):
+    source_articles_url = source_url.format(source,api_key)
+    with urllib.request.urlopen(source_articles_url) as url:
+        source_articles_data = url.read()
+        source_articles_response = json.loads(source_articles_data)
+
+        source_articles_results = None
+
+        if source_articles_response['articles']:
+            source_articles_list = source_articles_response['articles']
+            source_articles_results = process_results(source_articles_list)
+
+
+    return source_articles_results
