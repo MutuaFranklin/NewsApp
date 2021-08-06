@@ -10,6 +10,8 @@ class Config:
     
     SOURCE_API_URL ='https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'
 
+    ARTICLE_BY_CATEGORY = 'https://newsapi.org/v2/everything?q={}&apiKey={}'
+
     # https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=5449b648c646487785e2184297d70841
 
 

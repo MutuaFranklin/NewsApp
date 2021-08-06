@@ -1,7 +1,7 @@
 from flask import render_template,request,redirect,url_for
 from app import app
 # from .models import articlesource
-from .requests import article_categories, get_news_articles, search_article , article_by_source
+from .requests import article_by_category, article_categories, get_news_articles, search_article , article_by_source
 
 
 # Source = articlesource.Source
@@ -109,3 +109,80 @@ def mtv_news():
 
     # title = f'search results for {article_title}'
     return render_template('sources.html',  mtv = mtv )
+
+
+@app.route('/general')
+def general():
+    '''
+    Sources function to filter general articles
+
+    '''
+
+    general = article_by_category('general')
+
+    # title = f'search results for {article_title}'
+    return render_template('categoryArticles.html',  general = general )
+
+
+@app.route('/entertainment')
+def entertainment():
+    '''
+    Sources function to filter articles based on entertainment
+
+    '''
+
+    entertainment = article_by_category('entertainment')
+
+    # title = f'search results for {article_title}'
+    return render_template('categoryArticles.html',  entertainment = entertainment )
+
+
+@app.route('/health')
+def health():
+    '''
+    Sources function to filter articles based on health
+
+    '''
+
+    health = article_by_category('health')
+
+    # title = f'search results for {article_title}'
+    return render_template('categoryArticles.html',  health = health )
+
+@app.route('/science')
+def science():
+    '''
+    Sources function to filter articles based on science
+
+    '''
+
+    science = article_by_category('science')
+
+    # title = f'search results for {article_title}'
+    return render_template('categoryArticles.html',  science = science )
+
+@app.route('/business')
+def business():
+    '''
+    Sources function to filter articles based on health
+
+    '''
+
+    business = article_by_category('business')
+
+    # title = f'search results for {article_title}'
+    return render_template('categoryArticles.html',  business = business )
+
+
+
+@app.route('/technology')
+def technology():
+    '''
+    Sources function to filter articles based on health
+
+    '''
+
+    technology = article_by_category('technology')
+
+    # title = f'search results for {article_title}'
+    return render_template('categoryArticles.html',  technology = technology )

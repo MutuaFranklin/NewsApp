@@ -21,8 +21,11 @@ search_url = Config.SEARCH_ITEM_URL
 # Getting the sources by categories url
 categories_url = Config.CATEGORIES_API_URL
 
-# Getting articles from a definite sourcel
+# Getting articles from a definite source
 source_url = Config.SOURCE_API_URL
+
+# Getting articles in a category
+category_articles_url = Config.ARTICLE_BY_CATEGORY
 
 def get_news_articles():
     '''
@@ -130,3 +133,19 @@ def article_by_source(source):
 
 
     return source_articles_results
+
+
+def article_by_category(source):
+    category_articles = category_articles_url.format(source,api_key)
+    with urllib.request.urlopen(category_articles) as url:
+        category_articles_data = url.read()
+        category_articles_response = json.loads(category_articles_data)
+
+        category_articles_results = None
+
+        if category_articles_response['articles']:
+            category_articles_list = category_articles_response['articles']
+            category_articles_results = process_results(category_articles_list)
+
+
+    return category_articles_results
