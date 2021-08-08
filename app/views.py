@@ -23,10 +23,20 @@ def index():
     search_article = request.args.get('article_query')
 
     if search_article:
-        return redirect(url_for('search',article_title=search_article))
+        return redirect(url_for('search', article_title = search_article))
     else:
         return render_template('index.html', title = title, headline = topHeadline)
 
+@app.route('/search/<article_title>')
+def search(article_title):
+    '''
+    View function to display the search results
+    '''
+    search_article_list = article_title.split(" ")
+    article_name_format = "+".join(search_article_list)
+    searched_articles = search_article(article_name_format)
+    title = f'search results for {article_title}'
+    return render_template('search.html', title = title, searchResults = searched_articles)
 
 @app.route('/categories')
 def categories():
@@ -40,7 +50,7 @@ def categories():
     
     title = 'Source List'
 
-    return render_template('sourcesbycategories.html', general = general_categories, entertainment = entertainment_categories, technology = technology_categories, title = title )
+    return render_template('sourceList.html', general = general_categories, entertainment = entertainment_categories, technology = technology_categories, title = title )
 
 
 @app.route('/bbc-news')
