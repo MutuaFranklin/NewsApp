@@ -53,3 +53,9 @@ nav{
 .card-body{
     color: white;
 }
+
+
+.search-results{
+    display: flex;
+    
+}
