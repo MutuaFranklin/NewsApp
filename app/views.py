@@ -63,7 +63,7 @@ def bbc_news():
 
     title = 'BBC Source'
     h2 = 'BBC Source'
-    return render_template('sources.html',  bbc = bbc, title =title, h2=h2 )
+    return render_template('sources.html',  sourcename = bbc, title =title, h2=h2 )
 
 
 @app.route('/cnn-news')
@@ -77,7 +77,7 @@ def cnn_news():
 
     title = 'CNN Source'
     h2 = 'CNN Source'
-    return render_template('sources.html',  cnn = cnn, title = title, h2=h2)
+    return render_template('sources.html',  sourcename = cnn, title = title, h2=h2)
 
 
 @app.route('/fox-news')
@@ -91,7 +91,7 @@ def fox_news():
 
     title = 'Fox Source'
     h2 = 'Fox Source'
-    return render_template('sources.html',  fox = fox, title=title, h2=h2 )
+    return render_template('sources.html',  sourcename= fox, title=title, h2=h2 )
 
 
 
@@ -106,7 +106,7 @@ def abc_news():
 
     title = 'ABC Source'
     h2 = 'ABC Source'
-    return render_template('sources.html',  abc = abc, title=title, h2=h2)
+    return render_template('sources.html',  sourcename = abc, title=title, h2=h2)
 
 
 
@@ -121,7 +121,7 @@ def mtv_news():
 
     title = 'MTV Source'
     h2 = 'MTV Source'
-    return render_template('sources.html',  mtv = mtv, title = title, h2 =h2 )
+    return render_template('sources.html',  sourcename = mtv, title = title, h2 =h2 )
 
 
 @app.route('/general')
