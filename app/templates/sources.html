@@ -4,53 +4,40 @@
    
 {% block styles%}
   {{ super() }}
-  <link rel="stylesheet" href="{{url_for('static',filename='css/macros.css')}}">
 {% endblock %}
 
-{% block sources %}
-
-<div class="container-fluid">
+{% block content %}
+<div class="container-fluid sourceArticles">
       <div class="container">
+        {% if h2 %}
+        <h2> {{ h2 }}</h2>
+        {% endif %}
     
-        <!-- genera; -->
         <div class="row d-flex">
-            <ul>
-                {{ macro.renderTopHighlight(bbc)}}
+            {{ macro.renderTopHighlight(bbc)}}
 
-            </ul>
         </div>
 
         <div class="row d-flex">
-          <ul>
-              {{ macro.renderTopHighlight(cnn)}}
+            {{ macro.renderTopHighlight(cnn)}}
 
-          </ul>
         </div>
 
         <div class="row d-flex">
-          <ul>
               {{ macro.renderTopHighlight(abc)}}
 
-          </ul>
         </div>
 
         <div class="row d-flex">
-          <ul>
               {{ macro.renderTopHighlight(fox)}}
 
-          </ul>
         </div>
 
 
         <div class="row d-flex">
-          <ul>
               {{ macro.renderTopHighlight(mtv)}}
 
-          </ul>
-        </div>
-       
-       
-    
+        </div>   
      </div>  
 </div>
 

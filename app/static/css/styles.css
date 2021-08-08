@@ -1,0 +1,48 @@
+.container-fluid{
+    background-color: rgb(7, 24, 53);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-fluid h2{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+}
+
+
+.container h2{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+.form{
+    width: 100%;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+}
+
+
+.card{
+    background-color: rgb(2, 10, 24);
+}
+
+.card a{
+    text-decoration: none;
+}
+
+.card-body{
+    color: white;
+}

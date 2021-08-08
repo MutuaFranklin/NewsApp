@@ -47,8 +47,8 @@ def get_news_articles():
     return articles_results
 
 
-def search_article(article_title):
-    search_article_url =search_url.format(article_title, api_key)
+def search_article(article_query):
+    search_article_url =search_url.format(article_query, api_key)
     with urllib.request.urlopen(search_article_url) as url:
         search_article_data = url.read()
         search_article_response = json.loads(search_article_data)
@@ -149,3 +149,4 @@ def article_by_category(source):
 
 
     return category_articles_results
+

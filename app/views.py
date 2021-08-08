@@ -1,3 +1,5 @@
+from datetime import time
+from ssl import HAS_TLSv1_2
 from flask import render_template,request,redirect,url_for
 from app import app
 # from .models import articlesource
@@ -16,7 +18,7 @@ def index():
     '''
     topHeadline = get_news_articles()
 
-    title = 'NewsApp'
+    title = 'Home'
 
     search_article = request.args.get('article_query')
 
@@ -35,11 +37,10 @@ def categories():
     general_categories = article_categories('general')
     entertainment_categories = article_categories('entertainment')
     technology_categories = article_categories('technology')
+    
+    title = 'Source List'
 
-
-
-    # title = f'search results for {article_title}'
-    return render_template('sourcesbycategories.html', general = general_categories, entertainment = entertainment_categories, technology = technology_categories )
+    return render_template('sourcesbycategories.html', general = general_categories, entertainment = entertainment_categories, technology = technology_categories, title = title )
 
 
 @app.route('/bbc-news')
@@ -50,11 +51,9 @@ def bbc_news():
     '''
     bbc = article_by_source('bbc-news')
 
-   
-
-
-    # title = f'search results for {article_title}'
-    return render_template('sources.html',  bbc = bbc )
+    title = 'BBC Source'
+    h2 = 'BBC Source'
+    return render_template('sources.html',  bbc = bbc, title =title, h2=h2 )
 
 
 @app.route('/cnn-news')
@@ -66,8 +65,9 @@ def cnn_news():
 
     cnn = article_by_source('cnn-news')
 
-    # title = f'search results for {article_title}'
-    return render_template('sources.html',  cnn = cnn )
+    title = 'CNN Source'
+    h2 = 'CNN Source'
+    return render_template('sources.html',  cnn = cnn, title = title, h2=h2)
 
 
 @app.route('/fox-news')
@@ -79,8 +79,9 @@ def fox_news():
 
     fox = article_by_source('fox-news')
 
-    # title = f'search results for {article_title}'
-    return render_template('sources.html',  fox = fox )
+    title = 'Fox Source'
+    h2 = 'Fox Source'
+    return render_template('sources.html',  fox = fox, title=title, h2=h2 )
 
 
 
@@ -93,8 +94,9 @@ def abc_news():
 
     abc = article_by_source('abc-news')
 
-    # title = f'search results for {article_title}'
-    return render_template('sources.html',  abc = abc )
+    title = 'ABC Source'
+    h2 = 'ABC Source'
+    return render_template('sources.html',  abc = abc, title=title, h2=h2)
 
 
 
@@ -107,8 +109,9 @@ def mtv_news():
 
     mtv = article_by_source('mtv-news')
 
-    # title = f'search results for {article_title}'
-    return render_template('sources.html',  mtv = mtv )
+    title = 'MTV Source'
+    h2 = 'MTV Source'
+    return render_template('sources.html',  mtv = mtv, title = title, h2 =h2 )
 
 
 @app.route('/general')
@@ -120,8 +123,9 @@ def general():
 
     general = article_by_category('general')
 
-    # title = f'search results for {article_title}'
-    return render_template('categoryArticles.html',  general = general )
+    title = 'General Articles'
+    h2 = 'General Articles'
+    return render_template('categoryArticles.html',  general = general, title = title, h2 =h2 )
 
 
 @app.route('/entertainment')
@@ -133,8 +137,10 @@ def entertainment():
 
     entertainment = article_by_category('entertainment')
 
-    # title = f'search results for {article_title}'
-    return render_template('categoryArticles.html',  entertainment = entertainment )
+    title = 'Entertainment Articles'
+    h2 = 'Entertainment Articles'
+
+    return render_template('categoryArticles.html',  entertainment = entertainment, title = title, h2=h2)
 
 
 @app.route('/health')
@@ -146,8 +152,9 @@ def health():
 
     health = article_by_category('health')
 
-    # title = f'search results for {article_title}'
-    return render_template('categoryArticles.html',  health = health )
+    title = 'Health Articles'
+    h2 = 'Health Articles'
+    return render_template('categoryArticles.html',  health = health, title=title, h2=h2 )
 
 @app.route('/science')
 def science():
@@ -158,8 +165,9 @@ def science():
 
     science = article_by_category('science')
 
-    # title = f'search results for {article_title}'
-    return render_template('categoryArticles.html',  science = science )
+    title = 'Science Articles'
+    h2 = 'Science Articles'
+    return render_template('categoryArticles.html',  science = science, title =title, h2=h2 )
 
 @app.route('/business')
 def business():
@@ -170,8 +178,9 @@ def business():
 
     business = article_by_category('business')
 
-    # title = f'search results for {article_title}'
-    return render_template('categoryArticles.html',  business = business )
+    title = 'Business Articles'
+    h2 = 'Business Articles'
+    return render_template('categoryArticles.html',  business = business, title = title, h2=h2 )
 
 
 
@@ -184,5 +193,6 @@ def technology():
 
     technology = article_by_category('technology')
 
-    # title = f'search results for {article_title}'
-    return render_template('categoryArticles.html',  technology = technology )
+    title = 'Technology Articles'
+    h2 = 'Technology Articles'
+    return render_template('categoryArticles.html',  technology = technology, title = title, h2=h2 )

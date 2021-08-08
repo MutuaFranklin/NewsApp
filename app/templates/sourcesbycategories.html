@@ -4,47 +4,35 @@
    
 {% block styles%}
   {{ super() }}
-  <link rel="stylesheet" href="{{url_for('static',filename='css/macros.css')}}">
+  <!-- <link rel="stylesheet" href="{{url_for('static',filename='css/macros.css')}}"> -->
 {% endblock %}
 
-{% block sources %}
 
-<div class="container-fluid">
-      <h1>Source categories</h1>
-      <div class="container">
-    
-        <!-- genera; -->
-        <div class="row d-flex">
-            <h3> General</h3>
-            <ul>
-                {{ macro.renderSourceCategories(general)}}
-            </ul>
-        </div>
-        <!-- Upcoming movie  -->
-        <div class="row">
-    
-            <h3> Entertainment </h3>
-            <ul>
-              {{ macro.renderSourceCategories(entertainment)}}
-            </ul>
-        </div>
-    
-        <!-- Now showing movie -->
-        <div class="row">
-    
-            <h3>Tech</h3>
-            <ul>
-              {{ macro.renderSourceCategories(technology)}}
-            </ul>
-        </div>
-    
-    
-     </div>  
-</div>
+{% block content %}
 
-    
-            
-    
-    
+  <div class="container-fluid">
+        <div class="container">
+      
+          <!-- genera; -->
+          <div class="row d-flex">
+              <h3> General</h3>
+                  {{ macro.renderSourceCategories(general)}}
+          </div>
+          <!-- Upcoming movie  -->
+          <div class="row">
+      
+              <h3> Entertainment </h3>
+                {{ macro.renderSourceCategories(entertainment)}}
+          </div>
+      
+          <!-- Now showing movie -->
+          <div class="row">  
+              <h3>Tech</h3>
+                {{ macro.renderSourceCategories(technology)}}
+          </div>
+      
+      
+      </div>  
+  </div>
 
 {% endblock %}
