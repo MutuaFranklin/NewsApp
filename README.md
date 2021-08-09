@@ -50,7 +50,7 @@ Open NewsApp, the cloned Repo in terminal and run : pip install -r requirements.
 ```
 
 ```
-Run source newsVirtual/bin/activate to activate the virtual environment and python3.8 run.py to launch the app
+Run source newsVirtual/bin/activate to activate the virtual environment and ./start.sh to launch the app
 
 ```
 
@@ -69,7 +69,7 @@ As a user:
 
 ## Live link
 
-Live link: [NewsAp live link](https://mutuafranklin.github.io/FleekyBite-Pizza/)
+Live link: [NewsAp live link](https://newsappclear.herokuapp.com/)
 
 ## Support and contact details
 
