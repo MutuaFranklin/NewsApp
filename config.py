@@ -18,6 +18,7 @@ class Config:
 
     ARTICLE_BY_CATEGORY = 'https://newsapi.org/v2/everything?q={}&apiKey={}'
 
+
     # https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=5449b648c646487785e2184297d70841
     # https://newsapi.org/v2/everything?q=apple&from=2021-08-06&sortBy=popularity&apiKey='5449b648c646487785e2184297d70841'
 
