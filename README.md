@@ -29,7 +29,7 @@ Python Language
 
 When you create a repository on GitHub, it exists as a remote repository. You can clone your repository to create a local copy on your computer and sync between the two locations. Here is a series of steps on how to set up the project on your local machine.
 
-Click [NewsApp ]https://github.com/MutuaFranklin/NewsApp to navigate on the main page of the project repository on Github.
+Click [NewsApp](https://github.com/MutuaFranklin/NewsApp) to navigate on the main page of the project repository on Github.
 
 ```
 Clone the repository using HTTPS, click "Clone with HTTPS".
