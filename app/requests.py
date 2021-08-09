@@ -1,31 +1,34 @@
-from app.models import articlesource
-from .config import Config
-from app import app
 import urllib.request,json
-from .models import articles, articlesource
-
-NewsArticles = articles.Articles
-ArticleSources = articlesource.Source
-
+from .models import Articles, Source
 
 
 # Getting api key
-api_key = app.config['NEWSAPP_API_KEY']
+api_key = None
+# Getting the news base url
+base_url = None
 
-# Getting the newsApp base url
-base_url = Config.TOPHEADLINE_API_BASE_URL
+category_articles_url = None
 
-# Getting the article search item url
-search_url = Config.SEARCH_ITEM_URL
+search_url = None
 
-# Getting the sources by categories url
-categories_url = Config.CATEGORIES_API_URL
+categories_url = None
 
-# Getting articles from a definite source
-source_url = Config.SOURCE_API_URL
+source_url = None
 
-# Getting articles in a category
-category_articles_url = Config.ARTICLE_BY_CATEGORY
+
+# Getting api key an source links
+def configure_request(app):
+    global api_key,base_url, categories_url, search_url, source_url, category_articles_url
+    api_key = app.config['NEWSAPP_API_KEY']
+    base_url = app.config['TOPHEADLINE_API_BASE_URL']
+    categories_url = app.config['CATEGORIES_API_URL']
+    search_url = app.config['SEARCH_ITEM_URL']
+    source_url = app.config['SOURCE_API_URL']
+    category_articles_url = app.config['ARTICLE_BY_CATEGORY']
+
+
+
+
 
 def get_news_articles():
     '''
@@ -77,7 +80,7 @@ def process_results(article_list):
        
 
         if image:
-            article_object = NewsArticles(title, image, description, author, url, publishedAt)
+            article_object = Articles(title, image, description, author, url, publishedAt)
             article_results.append(article_object)
             
 
@@ -110,7 +113,7 @@ def process_category_results(category_list):
         language = category_item.get('language')
         url = category_item.get('url')
 
-        category_object = ArticleSources(id, name, category, description, language, url)
+        category_object = Source(id, name, category, description, language, url)
         category_results.append(category_object)
 
        

@@ -1,22 +1,24 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
 
+<!-- Styles block -->
+    
+{% block styles%}
+  {{ super() }}
+  <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+{% endblock %}
+
 {% block content %}
 <div class="container-fluid content">
-
-    <div class="container search-results">
-
+    
         <div class="row">
 
             <h3> Found {{searchResults| count }} matches </h3>
             <hr>
-            <ul>
                 {{ macro.renderTopHighlight(searchResults)}}
-            </ul>
 
         </div>
 
-    </div>
 </div>
 
 {% endblock %}

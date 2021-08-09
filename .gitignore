@@ -1,1 +1,3 @@
 newsVirtual/
+*.pyc
+instance/

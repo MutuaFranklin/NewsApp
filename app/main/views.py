@@ -1,16 +1,12 @@
 from datetime import time
 from ssl import HAS_TLSv1_2
 from flask import render_template,request,redirect,url_for
-from app import app
-# from .models import articlesource
-from .requests import article_by_category, article_categories, get_news_articles, search_article , article_by_source
-
-
-# Source = articlesource.Source
+from . import main
+from ..requests import article_by_category, article_categories, get_news_articles, search_article , article_by_source
 
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
 
     '''
@@ -27,7 +23,7 @@ def index():
     else:
         return render_template('index.html', title = title, headline = topHeadline)
 
-@app.route('/search/<article_title>')
+@main.route('/search/<article_title>')
 def search(article_title):
     '''
     View function to display the search results
@@ -38,7 +34,7 @@ def search(article_title):
     title = f'search results for {article_title}'
     return render_template('search.html', title = title, searchResults = searched_articles)
 
-@app.route('/categories')
+@main.route('/categories')
 def categories():
     '''
     Sources function to display available category sources
@@ -53,7 +49,7 @@ def categories():
     return render_template('sourceList.html', general = general_categories, entertainment = entertainment_categories, technology = technology_categories, title = title )
 
 
-@app.route('/bbc-news')
+@main.route('/bbc-news')
 def bbc_news():
     '''
     Sources function to display available  sources articles
@@ -66,7 +62,7 @@ def bbc_news():
     return render_template('sources.html',  sourcename = bbc, title =title, h2=h2 )
 
 
-@app.route('/cnn-news')
+@main.route('/cnn-news')
 def cnn_news():
     '''
     Sources function to display available  sources articles
@@ -80,7 +76,7 @@ def cnn_news():
     return render_template('sources.html',  sourcename = cnn, title = title, h2=h2)
 
 
-@app.route('/fox-news')
+@main.route('/fox-news')
 def fox_news():
     '''
     Sources function to display available  sources articles
@@ -95,7 +91,7 @@ def fox_news():
 
 
 
-@app.route('/abc-news')
+@main.route('/abc-news')
 def abc_news():
     '''
     Sources function to display available  sources articles
@@ -110,7 +106,7 @@ def abc_news():
 
 
 
-@app.route('/mtv-news')
+@main.route('/mtv-news')
 def mtv_news():
     '''
     Sources function to display available  sources articles
@@ -124,7 +120,7 @@ def mtv_news():
     return render_template('sources.html',  sourcename = mtv, title = title, h2 =h2 )
 
 
-@app.route('/general')
+@main.route('/general')
 def general():
     '''
     Sources function to filter general articles
@@ -138,7 +134,7 @@ def general():
     return render_template('categoryArticles.html',  general = general, title = title, h2 =h2 )
 
 
-@app.route('/entertainment')
+@main.route('/entertainment')
 def entertainment():
     '''
     Sources function to filter articles based on entertainment
@@ -153,7 +149,7 @@ def entertainment():
     return render_template('categoryArticles.html',  entertainment = entertainment, title = title, h2=h2)
 
 
-@app.route('/health')
+@main.route('/health')
 def health():
     '''
     Sources function to filter articles based on health
@@ -166,7 +162,7 @@ def health():
     h2 = 'Health Articles'
     return render_template('categoryArticles.html',  health = health, title=title, h2=h2 )
 
-@app.route('/science')
+@main.route('/science')
 def science():
     '''
     Sources function to filter articles based on science
@@ -179,7 +175,7 @@ def science():
     h2 = 'Science Articles'
     return render_template('categoryArticles.html',  science = science, title =title, h2=h2 )
 
-@app.route('/business')
+@main.route('/business')
 def business():
     '''
     Sources function to filter articles based on health
@@ -194,7 +190,7 @@ def business():
 
 
 
-@app.route('/technology')
+@main.route('/technology')
 def technology():
     '''
     Sources function to filter articles based on health

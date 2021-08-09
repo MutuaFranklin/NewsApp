@@ -1,7 +1,13 @@
+import os
+
+
 class Config:
     '''
     General configuration parent class
     '''
+   
+    NEWSAPP_API_KEY = os.environ.get('NEWSAPP_API_KEY')
+    
     TOPHEADLINE_API_BASE_URL ='https://newsapi.org/v2/top-headlines?country=us&apiKey={}'
 
     CATEGORIES_API_URL = 'https://newsapi.org/v2/top-headlines/sources?category={}&apiKey={}'
@@ -35,3 +41,8 @@ class DevConfig(Config):
     '''
 
     DEBUG = True
+
+config_options = {
+'development':DevConfig,
+'production':ProdConfig
+}
