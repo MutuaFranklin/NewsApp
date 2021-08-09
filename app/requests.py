@@ -30,12 +30,12 @@ def configure_request(app):
 
 
 
-def get_news_articles():
+def get_news_articles(default):
     '''
     Function that gets the json response to our url request
     '''
 
-    get_articles_url = base_url.format(api_key)
+    get_articles_url = search_url.format(default,api_key)
     with urllib.request.urlopen(get_articles_url) as url:
         get_articles_data = url.read()
         get_articles_response = json.loads(get_articles_data)

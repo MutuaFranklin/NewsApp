@@ -12,7 +12,7 @@ def index():
     '''
     View root page function that returns the index page and its data
     '''
-    topHeadline = get_news_articles()
+    topHeadline = get_news_articles('kenya')
 
     title = 'Home'
 
