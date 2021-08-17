@@ -23,6 +23,8 @@ def index():
     else:
         return render_template('index.html', title = title, headline = topHeadline)
 
+       
+
 @main.route('/search/<article_title>')
 def search(article_title):
     '''
